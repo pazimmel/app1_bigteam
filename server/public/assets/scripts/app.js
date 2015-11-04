@@ -6,6 +6,7 @@ $(document).ready(function(){
         $.each($(this).serializeArray(), function(i, field){
             values[field.name]= field.value;
         });
+        $("#createEmployees").find("input[type=number]").val("");
         //console.log(values);
         displayLoading();
         callToServer(values,employeesAdded);

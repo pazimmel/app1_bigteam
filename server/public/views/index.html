@@ -11,18 +11,38 @@
 
 </head>
 <body>
-    <form id="createEmployees">
-        <input type='number' id="numEmployees" name="numEmployees" placeholder=" How many employees do you want to generate: ">
-        <input type="radio" name="sex" value="male">Male
-        <input type="radio" name="sex" value="female">Female
-        <input type="radio" name="sex" value="both">Both
-        <input type="number" id="minSalary" name="minSalary" placeholder="Enter Min Salary: ">
-        <input type="number" id="maxSalary" name="maxSalary" placeholder="Enter Max Salary: ">
-        <input type="number" id="minTenure" name="minTenure" placeholder="Enter Min Tenure: ">
-        <input type="number" id="maxTenure" name="maxTenure" placeholder="Enter Max Tenure: ">
-        <button id="submit" class="btn btn-info">Submit</button>
-    </form>
-    <div class="message"></div>
+    <div class="document container well">
+        <h1>Employee Generator Form</h1>
+        <form id="createEmployees">
+            <div class="employee-maker container-float col-md-3">
+                <h5>Number of Employees:</h5>
+                <input type='number' id="numEmployees" name="numEmployees" placeholder=" How many employees do you want to generate: ">
+            </div>
+
+            <div class="sex container-float col-md-3">
+                <h5>Gender of Employees:</h5>
+                <input type="radio" name="sex" value="male">Male
+                <input type="radio" name="sex" value="female">Female
+                <input type="radio" name="sex" value="both">Both
+            </div>
+
+            <div class="salary container-float col-md-3">
+                <h5>Salary Range:</h5>
+                <input type="number" id="minSalary" name="minSalary" placeholder="Enter Min Salary: ">
+                <input type="number" id="maxSalary" name="maxSalary" placeholder="Enter Max Salary: ">
+            </div>
+
+            <div class="tenure container-float col-md-3">
+                <h5>Tenure Range:</h5>
+                <input type="number" id="minTenure" name="minTenure" placeholder="Enter Min Tenure: ">
+                <input type="number" id="maxTenure" name="maxTenure" placeholder="Enter Max Tenure: ">
+            </div>
+            <div class="container">
+                <button id="submit" class="btn btn-info align-left">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="message container well"></div>
 
 
 
