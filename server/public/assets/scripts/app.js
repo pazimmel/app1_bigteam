@@ -6,25 +6,44 @@ $(document).ready(function(){
         $.each($(this).serializeArray(), function(i, field){
             values[field.name]= field.value;
         });
-        console.log(values);
+        //console.log(values);
+        displayLoading();
         callToServer(values,employeesAdded);
     });
 
     function callToServer(values,employeesAdded){
+        employeesAdded++;
+        console.log("Adding employee number", employeesAdded);
         $.ajax({
             type:"POST",
             url:"/data",
             data: values,
             success: function(data){
-                console.log("this is data ",data);
-                var currNumEmployees = employeesAdded + 1;
-                console.log("num employees added", currNumEmployees);
-                //callToServer(values,currNumEmployees);
-
-
+                if (employeesAdded<values.numEmployees){
+                    callToServer(values, employeesAdded);
+                }else{
+                    console.log('done');
+                    displayCompleted();
+                }
             }
         });
     }
 
 });
 
+function displayLoading(){
+    $('.message').empty();
+    $('.message').append("<div>" +
+        "<p>Employees are being added...</p>"
+        + "</div>");
+    $('body').addClass('progress');
+    //$('form').addClass('progress');
+}
+function displayCompleted(){
+    $('body').removeClass('progress');
+    //$('form').removeClass('progress');
+    $('.message').empty();
+    $('.message').append("<div>" +
+            "<p>Employees have been added!</p>"
+        + "</div>");
+}
